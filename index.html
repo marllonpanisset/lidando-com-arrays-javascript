@@ -1,0 +1,124 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Treinando Javascript - Arrays</title>
+</head>
+<body>
+    <h1>Treinando Javascript - Arrays</h1>
+    <h2>Array.every():</h2>
+    <div id="resultado1"></div>
+    <br />
+    <h2>Array.include():</h2>
+    <div id="resultado2"></div>
+    <br />
+    <h2>Array.filter():</h2>
+    <div id="resultado3"></div>
+    <br />
+    <h2>Array.find():</h2>
+    <div id="resultado4"></div>
+    <br />
+    <h2>Array.map():</h2>
+    <div id="resultado5"></div>
+    <br />
+    <h2>Array.some():</h2>
+    <div id="resultado6"></div>
+    <br />
+    <h2>Array.reduce():</h2>
+    <div id="resultado7"></div>
+    
+    <script>
+        const resultado1 = document.getElementById("resultado1");
+        const resultado2 = document.getElementById("resultado2");
+        const resultado3 = document.getElementById("resultado3");
+        const resultado4 = document.getElementById("resultado4");
+        const resultado5 = document.getElementById("resultado5");
+        const resultado6 = document.getElementById("resultado6");
+        const resultado7 = document.getElementById("resultado7");
+        const beers = ['Heineken', 'Bohemia', 'Itaipava', 'Budwise'];
+        const ages = [20, 25, 19, 21, 42];
+        
+        //
+        //Array.every()
+        //Possibilita testar todos os elementos do seu array.
+        //Caso algum dos elementos não passe pela condição definida por você, o retorno será false.
+        //
+        function isGreaterThan(age) {
+            return age >=18;
+        }
+        
+        const greater = ages.every(isGreaterThan);
+
+        resultado1.innerHTML = greater;
+        
+        //
+        //Array.includes()
+        //Possibilita verificar se um element existe ou não no array definido.
+        //
+        resultado2.innerHTML = beers.includes('Skol');
+        
+        //
+        //Array.filter()
+        //Este método possibilita a criação de filtros de forma rápida e fácil em seus arrays.
+        //
+        function startWithB(word) {
+            return word.indexOf('B') === 0;
+        }
+
+        const beersStartWithB = beers.filter(startWithB);
+
+        resultado3.innerHTML = beersStartWithB;
+        
+        //
+        //Array.find()
+        //Faça uma busca em seu array de um ou mais elementos que se encaixam no filtro definido por você.
+        //
+        function findHeineken(element) {
+            return element === 'Heineken';
+        }
+
+        const beerHeineken = beers.find(findHeineken);
+
+        resultado4.innerHTML = beerHeineken;
+        
+        //
+        //Array.map()
+        //Este método percorre todos os elementos do array,
+        //executando funções para cada elemento e retornando um novo array como resultado.
+        //
+        function upAge(age) {
+            return age + 1;
+        }
+
+        const newAges = ages.map(upAge);
+
+        resultado5.innerHTML = newAges;
+        
+        //
+        //Array.some()
+        //Este método verifica se ao menos um elemento satisfaz a condição definida por você.
+        //
+        function hasHeinekenOrBudWise(beer) {
+            return (beer === 'Budwise' || beer === 'Heineken');
+        }
+
+        const heinekenBudwise = beers.some(hasHeinekenOrBudWise);
+
+        resultado6.innerHTML = heinekenBudwise;
+        
+        //
+        //Array.reduce()
+        //Você pode utilizar o método reduce para alguns casos,
+        //sendo um deles para facilitar cálculos.
+        //
+        function reducerAge(accumulator, age) {
+            return accumulator + age;
+        }
+        
+        const sumAges = ages.reduce(reducerAge);
+
+        resultado7.innerHTML = sumAges;
+    </script>
+</body>
+</html>
